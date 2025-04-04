@@ -1,0 +1,37 @@
+.sliderContainer {
+  .localIcon {
+    color: rgba(204, 190, 190, 0.829);
+  }
+  .sliderTitle {
+    color: rgba(204, 190, 190, 0.829);
+  }
+  .slider {
+    div {
+      p {
+        font-size: 14px;
+        background-color: rgba(255, 255, 255, 0.16);
+        backdrop-filter: blur(52px);
+        color: white;
+      }
+    }
+  }
+
+  
+
+  
+}
+
+.slick-arrow {
+  &.slick-next::before,
+  &.slick-prev::before {
+    color: rgba(46, 41, 41, 0.238);
+    font-size: 25px;
+  }
+}
+
+// Hide arrows on small screens
+@media (max-width: 600px) {
+  .slick-arrow {
+    display: none !important;
+  }
+} 

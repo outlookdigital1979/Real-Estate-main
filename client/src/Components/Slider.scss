@@ -1,0 +1,142 @@
+.singlePageSlider {
+  .slider {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    gap: 20px;
+
+    .fullSlider {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: -1;
+      }
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .arrow {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 30px;
+          border-radius: 100%;
+          background-color: white;
+        }
+      }
+
+      .imgContainer {
+        flex: 10;
+        width: 100%;
+        height: 100vh;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 36px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .bigImage {
+      flex: 3;
+    }
+
+    .smallImages {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      overflow-y: scroll;
+
+      img {
+        height: 100px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .slider {
+      flex-direction: column;
+      height: auto;
+
+      .fullSlider {
+        // flex-direction: column;
+        justify-content: center;
+
+        .imgContainer {
+          height: 60vh; // Adjust the height for smaller screens
+        }
+
+        .arrow img {
+          width: 20px; // Reduce arrow size
+        }
+
+        .close {
+          font-size: 25px; // Adjust close button size
+        }
+      }
+
+      .smallImages {
+        flex-direction: row;
+        justify-content: space-between;
+
+        img {
+          height: 80px; // Smaller thumbnail images
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .slider {
+      .bigImage img {
+        object-fit: contain; // Adjust large image for smaller screens
+      }
+
+      .smallImages {
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        img {
+          height: 70px; // Smaller thumbnails
+        }
+      }
+    }
+  }
+}
